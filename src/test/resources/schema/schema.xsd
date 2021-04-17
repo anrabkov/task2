@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/papers"
+        xmlns:tns="http://www.example.org/papers"
+        elementFormDefault="qualified">
+    <element name="papers">
+        <complexType>
+            <sequence>
+                <element ref="tns:paper" maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="paper">
+        <sequence>
+            <element name="title" type="string" />
+            <element name="number-of-pages" type="tns:numberOfPages" />
+            <element name="price" type="tns:price" />
+            <element name="monthly" type="boolean" />
+            <element name="color" type="boolean" />
+            <element name="publication-date" type="gMonthDay" />
+        </sequence>
+        <attribute name="id" type="tns:paperID" use="required" />
+        <attribute name="note" use="optional" default="empty"  />
+    </complexType>
+
+
+    <complexType name="glossyPaper">
+        <complexContent>
+            <extension base="tns:paper">
+                <sequence>
+                    <element name="glossy-paper-type" type="tns:glossyPaperType" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="notGlossyPaper">
+        <complexContent>
+            <extension base="tns:paper">
+                <sequence>
+                    <element name="not-glossy-paper-type" type="tns:notGlossyPaperType" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="paperID">
+        <restriction base="ID">
+            <pattern value="\w{1,30}" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="price">
+        <restriction base="unsignedInt">
+            <minInclusive value="0" />
+            <maxInclusive value="100" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="numberOfPages">
+        <restriction base="unsignedInt">
+            <minInclusive value="1" />
+            <maxInclusive value="200" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="glossyPaperType">
+        <restriction base="string">
+            <enumeration value="BOOKLET" />
+            <enumeration value="MAGAZINE" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="notGlossyPaperType">
+        <restriction base="string">
+            <enumeration value="NEWSPAPER" />
+            <enumeration value="MAGAZINE" />
+        </restriction>
+    </simpleType>
+
+    <element name="paper" type="tns:paper" abstract="true" />
+    <element name="glossy-paper" type="tns:glossyPaper" substitutionGroup="tns:paper" />
+    <element name="not-glossy-paper" type="tns:notGlossyPaper" substitutionGroup="tns:paper" />
+
+</schema>
+

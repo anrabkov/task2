@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<papers xmlns:tns ="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.example.org/papers"
+         tns:schemaLocation="http://www.example.org/papers ../schema/schema.xsd">
+
+
+    <glossy-paper id="b1" note="for everyone">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>2</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="b2" note="for everyone">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>2</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+
+    <glossy-paper id="b3" note="for everyone">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>2</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="b4" note="for everyone">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>2</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="b5">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>2</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="b6">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>3</number-of-pages>
+        <price>1</price>
+        <monthly>false</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>BOOKLET</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m1">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m2" note="for adults">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m3">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m4">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m5">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <glossy-paper id="m6">
+        <title>Example Glossy Paper</title>
+        <number-of-pages>25</number-of-pages>
+        <price>10</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <glossy-paper-type>MAGAZINE</glossy-paper-type>
+    </glossy-paper>
+
+    <not-glossy-paper id="n1">
+        <title>Example Not Glossy Paper</title>
+        <number-of-pages>10</number-of-pages>
+        <price>4</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <not-glossy-paper-type>NEWSPAPER</not-glossy-paper-type>
+    </not-glossy-paper>
+
+
+    <not-glossy-paper id="n2">
+        <title>Example Not Glossy Paper</title>
+        <number-of-pages>10</number-of-pages>
+        <price>4</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <not-glossy-paper-type>NEWSPAPER</not-glossy-paper-type>
+    </not-glossy-paper>
+
+    <not-glossy-paper id="n3">
+        <title>Example Not Glossy Paper</title>
+        <number-of-pages>10</number-of-pages>
+        <price>4</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <not-glossy-paper-type>NEWSPAPER</not-glossy-paper-type>
+    </not-glossy-paper>
+
+    <not-glossy-paper id="n4">
+        <title>Example Not Glossy Paper</title>
+        <number-of-pages>10</number-of-pages>
+        <price>4</price>
+        <monthly>true</monthly>
+        <color>true</color>
+        <publication-date>--02-25</publication-date>
+        <not-glossy-paper-type>NEWSPAPER</not-glossy-paper-type>
+    </not-glossy-paper>
+
+
+
+</papers>
+
