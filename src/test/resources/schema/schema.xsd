@@ -21,7 +21,7 @@
             <element name="publication-date" type="gMonthDay" />
         </sequence>
         <attribute name="id" type="tns:paperID" use="required" />
-        <attribute name="note" use="optional" default="empty"  />
+        <attribute name="note" use="optional" default="-"  />
     </complexType>
 
 

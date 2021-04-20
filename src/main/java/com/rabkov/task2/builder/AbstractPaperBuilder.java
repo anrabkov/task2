@@ -3,7 +3,9 @@ package com.rabkov.task2.builder;
 import com.rabkov.task2.entity.AbstractPaper;
 import com.rabkov.task2.exception.PaperException;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public abstract class AbstractPaperBuilder {

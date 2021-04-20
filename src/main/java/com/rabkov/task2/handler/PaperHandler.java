@@ -7,9 +7,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.time.MonthDay;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class PaperHandler extends DefaultHandler {
 
@@ -17,13 +15,14 @@ public class PaperHandler extends DefaultHandler {
     private final char UNDERSCORE = '_';
 
     public Set<AbstractPaper> papers;
-    private EnumSet<PaperXmlTag> tagsWithTextContent;
     private AbstractPaper currentPaper;
     private PaperXmlTag currentXmlTag;
+    private EnumSet<PaperXmlTag> tagsWithTextContent;
 
     public PaperHandler() {
         papers = new HashSet<>();
-        tagsWithTextContent = EnumSet.range(PaperXmlTag.TITLE, PaperXmlTag.GLOSSY_PAPER);
+        tagsWithTextContent = EnumSet.range(PaperXmlTag.TITLE, PaperXmlTag.NOT_GLOSSY_PAPER_TYPE);
+
     }
 
     public Set<AbstractPaper> getPapers() {
@@ -36,7 +35,7 @@ public class PaperHandler extends DefaultHandler {
         String notGlossyPaperTag = PaperXmlTag.NOT_GLOSSY_PAPER.getValue();
 
         if (glossyPaperTag.equals(qName) || notGlossyPaperTag.equals(qName)) {
-            currentPaper = glossyPaperTag.equals(qName) ? new GlossyPaper(): new NotGlossyPaper();
+            currentPaper = glossyPaperTag.equals(qName) ? new GlossyPaper() : new NotGlossyPaper();
 
             String paperId = attributes.getValue(0);
             String note = attributes.getValue(1);
@@ -46,7 +45,6 @@ public class PaperHandler extends DefaultHandler {
         } else {
             String constantName = toConstantName(qName);
             PaperXmlTag tag = PaperXmlTag.valueOf(constantName);
-
             if (tagsWithTextContent.contains(tag)) {
                 currentXmlTag = tag;
             }
@@ -60,7 +58,7 @@ public class PaperHandler extends DefaultHandler {
 
         if (glossyPaperTag.equals(qName) || notGlossyPaperTag.equals(qName)) {
             papers.add(currentPaper);
-            currentPaper= null;
+            currentPaper = null;
         }
     }
 

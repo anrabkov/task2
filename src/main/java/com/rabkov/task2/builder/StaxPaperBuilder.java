@@ -13,21 +13,13 @@ import java.io.File;
 import java.time.MonthDay;
 import java.util.Optional;
 
-public class StaxPaperBuilder extends AbstractPaperBuilder{
+public class StaxPaperBuilder extends AbstractPaperBuilder {
 
     private static final char HYPHEN = '-';
     private static final char UNDERSCORE = '_';
 
-    private final String GLOSSY_PAPER_TAG;
-    private final String NOT_GLOSSY_PAPER_TAG;
-
-    private XMLInputFactory inputFactory;
-
-    public StaxPaperBuilder() {
-        inputFactory = XMLInputFactory.newInstance();
-        GLOSSY_PAPER_TAG = PaperXmlTag.GLOSSY_PAPER.toString();
-        NOT_GLOSSY_PAPER_TAG = PaperXmlTag.NOT_GLOSSY_PAPER.toString();
-    }
+    private final String GLOSSY_PAPER_TAG = PaperXmlTag.GLOSSY_PAPER.toString();
+    private final String NOT_GLOSSY_PAPER_TAG = PaperXmlTag.NOT_GLOSSY_PAPER.toString();
 
     @Override
     public void buildPapers(String xmlPath) throws PaperException {
@@ -42,6 +34,7 @@ public class StaxPaperBuilder extends AbstractPaperBuilder{
 
         try {
             Source source = new StreamSource(xmlPath);
+            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             reader = inputFactory.createXMLStreamReader(source);
 
             while (reader.hasNext()) {
@@ -50,13 +43,13 @@ public class StaxPaperBuilder extends AbstractPaperBuilder{
                 if (type == XMLStreamConstants.START_ELEMENT) {
                     name = reader.getLocalName();
 
-                    if (name.equals(GLOSSY_PAPER_TAG)) {
+                    if ((name).equals(GLOSSY_PAPER_TAG)) {
                         AbstractPaper paper = new GlossyPaper();
                         buildEntity(paper, reader);
                         papers.add(paper);
                     }
 
-                    if (name.equals(NOT_GLOSSY_PAPER_TAG)) {
+                    if ((toConstantName(name).equals(NOT_GLOSSY_PAPER_TAG))) {
                         AbstractPaper paper = new NotGlossyPaper();
                         buildEntity(paper, reader);
                         papers.add(paper);
@@ -69,14 +62,19 @@ public class StaxPaperBuilder extends AbstractPaperBuilder{
     }
 
 
-    private void buildEntity(AbstractPaper paper, XMLStreamReader reader) throws XMLStreamException, PaperException {
+    private void buildEntity(AbstractPaper paper, XMLStreamReader reader)
+            throws XMLStreamException, PaperException {
         String idAttribute = PaperXmlAttribute.ID.toString();
         String noteAttribute = PaperXmlAttribute.NOTE.toString();
         String paperId = reader.getAttributeValue(null, idAttribute);
-        String note = reader.getAttributeValue(null, noteAttribute);
+        String paperNote = reader.getAttributeValue(null, noteAttribute);
 
         paper.setId(paperId);
-        paper.setNote(note == null ? AbstractPaper.DEFAULT_NOTE : note);
+
+        if (paperNote != null) {
+            paper.setNote(paperNote);
+        }
+
         String name;
 
         while (reader.hasNext()) {
@@ -145,4 +143,3 @@ public class StaxPaperBuilder extends AbstractPaperBuilder{
         return result;
     }
 }
-

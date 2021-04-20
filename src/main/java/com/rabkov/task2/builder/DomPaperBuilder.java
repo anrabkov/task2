@@ -77,6 +77,7 @@ public class DomPaperBuilder extends AbstractPaperBuilder {
 
         String id = element.getAttribute(idAttribute);
         String note = element.getAttribute(noteAttribute);
+        note = (note == null || note.equals("")) ? AbstractPaper.DEFAULT_NOTE : note;
         String title = getElementTextContent(element, titleTag);
         int numberOfPages = Integer.parseInt(getElementTextContent(element, numberOfPagesTag));
         int price = Integer.parseInt(getElementTextContent(element, priceTag));
@@ -85,7 +86,7 @@ public class DomPaperBuilder extends AbstractPaperBuilder {
         MonthDay publicationDate = MonthDay.parse(getElementTextContent(element, publicationDateTag));
 
         paper.setId(id);
-        paper.setNote(note == null ? AbstractPaper.DEFAULT_NOTE : note);
+        paper.setNote(note);
         paper.setTitle(title);
         paper.setNumberOfPages(numberOfPages);
         paper.setPrice(price);

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class AbstractPaper {
 
-    public static final String DEFAULT_NOTE = "empty";
+    public static final String DEFAULT_NOTE = "-";
     
 
     private String id;
@@ -109,28 +109,24 @@ public class AbstractPaper {
                 && Objects.equals(title, paper.title) && Objects.equals(publicationDate, paper.publicationDate);
     }
 
-//    @Override
-//    public int hashCode() {
-//        int prime = 31;
-//        int result = 1;
-//
-//        result = result*prime + id.hashCode();
-//        result = result*prime + note.hashCode();
-//        result = result*prime + title.hashCode();
-//        result = result*prime + Integer.hashCode(numberOfPages);
-//        result = result*prime + Integer.hashCode(price);
-//        result = result*prime + Boolean.hashCode(monthly);
-//        result = result*prime + Boolean.hashCode(color);
-//        result = result*prime + publicationDate.hashCode();
-//
-//        return result;
-//    }
-
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, note, title, numberOfPages, price, monthly, color, publicationDate);
+        int prime = 31;
+        int result = 1;
+
+        result = result*prime + id.hashCode();
+        result = result*prime + note.hashCode();
+        result = result*prime + title.hashCode();
+        result = result*prime + Integer.hashCode(numberOfPages);
+        result = result*prime + Integer.hashCode(price);
+        result = result*prime + Boolean.hashCode(monthly);
+        result = result*prime + Boolean.hashCode(color);
+        result = result*prime + publicationDate.hashCode();
+
+        return result;
     }
+
+
 
     @Override
     public String toString() {

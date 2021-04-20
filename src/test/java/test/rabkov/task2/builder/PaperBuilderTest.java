@@ -28,7 +28,7 @@ public class PaperBuilderTest {
                     "for everyone",
                     "Example Glossy Paper",
                     3,
-                    1,
+                    2,
                     false,
                     true,
                     MonthDay.parse("--02-25"),
@@ -53,7 +53,7 @@ public class PaperBuilderTest {
         for (int i = 1; i <= 4; i++) {
             NotGlossyPaper paper = new NotGlossyPaper(
                     "n" + i,
-                    "",
+                    "-",
                     "Example Not Glossy Paper",
                     10,
                     4,
