@@ -1,5 +1,8 @@
-package com.rabkov.task2.builder;
+package com.rabkov.task2.parser;
 
+import com.rabkov.task2.builder.AbstractPaperBuilder;
+import com.rabkov.task2.builder.PaperXmlAttribute;
+import com.rabkov.task2.builder.PaperXmlTag;
 import com.rabkov.task2.entity.*;
 import com.rabkov.task2.exception.PaperException;
 import org.w3c.dom.Document;

@@ -6,8 +6,6 @@ import java.util.Objects;
 public class AbstractPaper {
 
     public static final String DEFAULT_NOTE = "-";
-    
-
     private String id;
     private String note;
     private String title;
@@ -16,7 +14,6 @@ public class AbstractPaper {
     private boolean monthly;
     private boolean color;
     private MonthDay publicationDate;
-
 
     public AbstractPaper(){
         publicationDate = MonthDay.now();
@@ -126,19 +123,20 @@ public class AbstractPaper {
         return result;
     }
 
-
-
     @Override
     public String toString() {
-        return "AbstractPaper{" +
-                "id='" + id + '\'' +
-                ", note=" + note +
-                ", title='" + title + '\'' +
-                ", numberOfPages=" + numberOfPages +
-                ", price=" + price +
-                ", monthly=" + monthly +
-                ", color=" + color +
-                ", publicationDate=" + publicationDate +
-                '}';
+        final StringBuilder sb = new StringBuilder();
+        sb.append("AbstractPaper{id = ").append(id);
+        sb.append(", note = ").append(note);
+        sb.append(", title = ").append(title);
+        sb.append(", numberOfPages = ").append(numberOfPages);
+        sb.append(", price = ").append(price);
+        sb.append(", monthly = ").append(monthly);
+        sb.append(", color = ").append(color);
+        sb.append(", publicationDate = ").append(publicationDate);
+        sb.append(" }");
+        String finalString = sb.toString();
+
+        return finalString;
     }
 }

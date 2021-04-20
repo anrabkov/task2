@@ -15,7 +15,7 @@ import java.time.MonthDay;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PaperBuilderTest {
+public class StaxPaperBuilderTest {
     private Set<AbstractPaper> expectedSet;
 
     @BeforeClass
@@ -71,10 +71,8 @@ public class PaperBuilderTest {
         Util util = new Util();
         String xmlPath = util.getPath("data/valid.xml");
 
-        Object[][] objects =  new Object[][] {
-                { PaperBuilderFactory.createPaperBuilder("DOM"), xmlPath },
-                { PaperBuilderFactory.createPaperBuilder("SAX"), xmlPath },
-                { PaperBuilderFactory.createPaperBuilder("STAX"), xmlPath }
+        Object[][] objects = new Object[][]{
+                {PaperBuilderFactory.createPaperBuilder("STAX"), xmlPath}
         };
         return objects;
     }

@@ -1,6 +1,9 @@
 package com.rabkov.task2.builder;
 
 import com.rabkov.task2.exception.PaperException;
+import com.rabkov.task2.parser.DomPaperBuilder;
+import com.rabkov.task2.parser.SaxPaperBuilder;
+import com.rabkov.task2.parser.StaxPaperBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -47,7 +47,12 @@ public class GlossyPaper extends AbstractPaper{
 
     @Override
     public String toString() {
-        String stringGlossyPaper = (glossyPaperType != null) ? glossyPaperType.name() : null;
-        return super.toString() + "; glossyPaperType = " + glossyPaperType.getValue();
+        StringBuilder sb = new StringBuilder();
+        sb.append("GlossyPaper{");
+        sb.append(super.toString());
+        sb.append("; glossyPaperType = ").append(glossyPaperType.getValue());
+        sb.append("}");
+        String finalString = sb.toString();
+        return finalString;
     }
 }

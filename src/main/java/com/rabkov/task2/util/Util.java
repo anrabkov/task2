@@ -7,7 +7,6 @@ import java.nio.charset.StandardCharsets;
 public class Util {
     public String getPath(String xmlPath){
         URL url = getClass().getClassLoader().getResource(xmlPath);
-//        System.out.println(url.getPath());
         String correctPath = URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8);
         return correctPath;
     }

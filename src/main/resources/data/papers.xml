@@ -45,7 +45,7 @@
         <glossy-paper-type>BOOKLET</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="b5">
+    <glossy-paper id="b5" note="for everyone">
         <title>Example Glossy Paper</title>
         <number-of-pages>3</number-of-pages>
         <price>2</price>
@@ -55,17 +55,17 @@
         <glossy-paper-type>BOOKLET</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="b6">
+    <glossy-paper id="b6" note="for everyone">
         <title>Example Glossy Paper</title>
         <number-of-pages>3</number-of-pages>
-        <price>1</price>
+        <price>2</price>
         <monthly>false</monthly>
         <color>true</color>
         <publication-date>--02-25</publication-date>
         <glossy-paper-type>BOOKLET</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="m1">
+    <glossy-paper id="m1" note="for adults">
         <title>Example Glossy Paper</title>
         <number-of-pages>25</number-of-pages>
         <price>10</price>
@@ -85,7 +85,7 @@
         <glossy-paper-type>MAGAZINE</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="m3">
+    <glossy-paper id="m3" note="for adults">
         <title>Example Glossy Paper</title>
         <number-of-pages>25</number-of-pages>
         <price>10</price>
@@ -95,7 +95,7 @@
         <glossy-paper-type>MAGAZINE</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="m4">
+    <glossy-paper id="m4" note="for adults">
         <title>Example Glossy Paper</title>
         <number-of-pages>25</number-of-pages>
         <price>10</price>
@@ -105,7 +105,7 @@
         <glossy-paper-type>MAGAZINE</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="m5">
+    <glossy-paper id="m5" note="for adults">
         <title>Example Glossy Paper</title>
         <number-of-pages>25</number-of-pages>
         <price>10</price>
@@ -115,7 +115,7 @@
         <glossy-paper-type>MAGAZINE</glossy-paper-type>
     </glossy-paper>
 
-    <glossy-paper id="m6">
+    <glossy-paper id="m6" note="for adults">
         <title>Example Glossy Paper</title>
         <number-of-pages>25</number-of-pages>
         <price>10</price>

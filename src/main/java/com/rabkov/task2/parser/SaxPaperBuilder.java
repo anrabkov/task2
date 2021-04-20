@@ -1,5 +1,6 @@
-package com.rabkov.task2.builder;
+package com.rabkov.task2.parser;
 
+import com.rabkov.task2.builder.AbstractPaperBuilder;
 import com.rabkov.task2.exception.PaperException;
 import com.rabkov.task2.handler.PaperHandler;
 import org.xml.sax.SAXException;
@@ -10,7 +11,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 
-public class SaxPaperBuilder extends AbstractPaperBuilder{
+public class SaxPaperBuilder extends AbstractPaperBuilder {
 
     private PaperHandler handler;
     private XMLReader reader;

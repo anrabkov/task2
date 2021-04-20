@@ -1,5 +1,8 @@
-package com.rabkov.task2.builder;
+package com.rabkov.task2.parser;
 
+import com.rabkov.task2.builder.AbstractPaperBuilder;
+import com.rabkov.task2.builder.PaperXmlAttribute;
+import com.rabkov.task2.builder.PaperXmlTag;
 import com.rabkov.task2.entity.*;
 import com.rabkov.task2.exception.PaperException;
 
@@ -10,6 +13,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+
 import java.time.MonthDay;
 import java.util.Optional;
 
@@ -17,16 +21,14 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
 
     private static final char HYPHEN = '-';
     private static final char UNDERSCORE = '_';
-
     private final String GLOSSY_PAPER_TAG = PaperXmlTag.GLOSSY_PAPER.toString();
     private final String NOT_GLOSSY_PAPER_TAG = PaperXmlTag.NOT_GLOSSY_PAPER.toString();
 
     @Override
     public void buildPapers(String xmlPath) throws PaperException {
         File file = new File(xmlPath);
-
         if (!file.exists() || file.isDirectory()) {
-            throw new PaperException("Unable to open file with path: " + xmlPath);
+            throw new PaperException("Impossible to open file with path: " + xmlPath);
         }
 
         XMLStreamReader reader;
@@ -36,14 +38,12 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
             Source source = new StreamSource(xmlPath);
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             reader = inputFactory.createXMLStreamReader(source);
-
             while (reader.hasNext()) {
                 int type = reader.next();
-
                 if (type == XMLStreamConstants.START_ELEMENT) {
                     name = reader.getLocalName();
 
-                    if ((name).equals(GLOSSY_PAPER_TAG)) {
+                    if (toConstantName(name).equals(GLOSSY_PAPER_TAG)) {
                         AbstractPaper paper = new GlossyPaper();
                         buildEntity(paper, reader);
                         papers.add(paper);
@@ -57,10 +57,9 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
                 }
             }
         } catch (XMLStreamException e) {
-            throw new PaperException("An error occurred during file reading", e);
+            throw new PaperException("An error occurred while reading the file", e);
         }
     }
-
 
     private void buildEntity(AbstractPaper paper, XMLStreamReader reader)
             throws XMLStreamException, PaperException {
@@ -76,7 +75,6 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
         }
 
         String name;
-
         while (reader.hasNext()) {
             int type = reader.next();
 
@@ -97,13 +95,13 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
             }
         }
 
-        throw new PaperException("Unable to build Device object");
+        throw new PaperException("Impossible to build Paper object");
     }
 
     private void initializeField(XMLStreamReader reader, PaperXmlTag tag, AbstractPaper paper)
             throws XMLStreamException, PaperException {
         String data = getTextContent(reader)
-                .orElseThrow(() -> new PaperException("Unable to get text content"));
+                .orElseThrow(() -> new PaperException("Impossible to get text content"));
 
         switch (tag) {
             case TITLE -> paper.setTitle(data);
@@ -133,13 +131,11 @@ public class StaxPaperBuilder extends AbstractPaperBuilder {
 
     private Optional<String> getTextContent(XMLStreamReader reader) throws XMLStreamException {
         Optional<String> result = Optional.empty();
-
         if (reader.hasNext()) {
             reader.next();
             String text = reader.getText();
             result = Optional.of(text);
         }
-
         return result;
     }
 }
